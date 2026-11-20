@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Page Explainer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-icon">💡</div>
+        <div>
+          <h1 class="title">Smart Explainer</h1>
+          <p class="subtitle">Keypoints & 50+ Languages</p>
+        </div>
+      </div>
+      <button id="open-options-btn" class="settings-btn" title="Settings">⚙️</button>
+    </header>
+
+    <!-- Active Tab Info -->
+    <div class="tab-card">
+      <div class="tab-label">Current Page:</div>
+      <div id="tab-title" class="tab-title">Detecting page...</div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="action-section">
+      <button id="analyze-now-btn" class="btn btn-primary">
+        <span>🔍</span>
+        <span>Analyze & Highlight Key Points</span>
+      </button>
+
+      <div class="toggle-row">
+        <label class="toggle-label" for="language-select">Target Language:</label>
+        <select id="language-select" class="select-dropdown">
+          <!-- Dynamically populated from languages.js -->
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button id="toggle-sidebar-btn" class="btn btn-secondary">
+          <span>📖</span>
+          <span>Toggle Explainer Panel</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Features Overview -->
+    <div class="features-list">
+      <div class="feature-item">
+        <span class="feature-icon">✨</span>
+        <div class="feature-text">
+          <strong>In-page Highlights</strong>
+          <span>Extracts & highlights core sentences directly in the text</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🌐</span>
+        <div class="feature-text">
+          <strong>50+ Native Languages</strong>
+          <span>Plain English ELI5, Spanish, Hindi, French, Arabic & more</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔊</span>
+        <div class="feature-text">
+          <strong>Audio Read Aloud</strong>
+          <span>Listen to native explanations with built-in voice synthesis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span id="api-status" class="status-badge">⚡ Extractive + AI Powered</span>
+      <span class="shortcut-hint">Select any text to explain</span>
+    </footer>
+  </div>
+
+  <script src="../content/languages.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
