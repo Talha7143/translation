@@ -1,7 +1,5 @@
-// Background Service Worker for Smart Page Explainer
-
 chrome.runtime.onInstalled.addListener(() => {
-  // Initialize default settings if not already set
+
   chrome.storage.sync.get(['selectedLanguage', 'apiKey', 'aiModel', 'highlightColor'], (res) => {
     chrome.storage.sync.set({
       selectedLanguage: res.selectedLanguage || 'en-plain',
@@ -11,7 +9,6 @@ chrome.runtime.onInstalled.addListener(() => {
     });
   });
 
-  // Setup context menu items
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
       id: 'spe-explain-page',
@@ -27,7 +24,6 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-// Context menu click listener
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab || !tab.id) return;
 
@@ -41,13 +37,12 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   }
 });
 
-// Listener for background API calls (e.g. Gemini API proxy or Translation fallback)
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'CALL_GEMINI_API') {
     handleGeminiCall(request.payload)
       .then(data => sendResponse({ success: true, data }))
       .catch(err => sendResponse({ success: false, error: err.message }));
-    return true; // Keep channel open for async response
+    return true; 
   }
 
   if (request.action === 'CALL_TRANSLATION_FALLBACK') {
@@ -58,7 +53,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-// Gemini API Handler
 async function handleGeminiCall({ apiKey, prompt, model = 'gemini-1.5-flash' }) {
   if (!apiKey) {
     throw new Error('API_KEY_MISSING');
@@ -95,23 +89,21 @@ async function handleGeminiCall({ apiKey, prompt, model = 'gemini-1.5-flash' }) 
   try {
     return JSON.parse(rawText);
   } catch (e) {
-    // If model didn't return clean JSON, return plain text
+
     return { raw: rawText };
   }
 }
 
-// Fallback Translation Handler (Using free public Google Translate API endpoint)
 async function handleTranslationFallback(text, targetLang) {
   if (!text || !text.trim()) return '';
   const lang = targetLang === 'en-plain' ? 'en' : targetLang;
-  
+
   const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(lang)}&dt=t&q=${encodeURIComponent(text)}`;
-  
+
   const res = await fetch(url);
   if (!res.ok) throw new Error('Translation fallback request failed');
   const data = await res.json();
-  
-  // Parse response: data[0] is array of [translatedChunk, originalChunk, ...]
+
   if (Array.isArray(data) && Array.isArray(data[0])) {
     return data[0].map(item => item[0]).join('');
   }

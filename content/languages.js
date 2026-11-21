@@ -1,4 +1,3 @@
-// 50+ Native Languages Dictionary for Smart Page Explainer
 const SUPPORTED_LANGUAGES = [
   { code: 'en-plain', name: 'Plain English (ELI5 / Simplified)', native: 'Plain English 💡', bcp47: 'en-US' },
   { code: 'en', name: 'English (Standard)', native: 'English', bcp47: 'en-US' },
@@ -36,7 +35,7 @@ const SUPPORTED_LANGUAGES = [
   { code: 'el', name: 'Greek', native: 'Ελληνικά', bcp47: 'el-GR' },
   { code: 'cs', name: 'Czech', native: 'Čeština', bcp47: 'cs-CZ' },
   { code: 'sv', name: 'Swedish', native: 'Svenska', bcp47: 'sv-SE' },
-  { code: 'ro', name: 'Romanian', native: 'Română', bcp47: 'ro-RO' },
+  { code: 'ro', name: 'Română', native: 'Română', bcp47: 'ro-RO' },
   { code: 'hu', name: 'Hungarian', native: 'Magyar', bcp47: 'hu-HU' },
   { code: 'da', name: 'Danish', native: 'Dansk', bcp47: 'da-DK' },
   { code: 'fi', name: 'Finnish', native: 'Suomi', bcp47: 'fi-FI' },
