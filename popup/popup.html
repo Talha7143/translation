@@ -8,7 +8,6 @@
 </head>
 <body>
   <div class="popup-container">
-    <!-- Header -->
     <header class="header">
       <div class="logo-group">
         <div class="logo-icon">💡</div>
@@ -19,27 +18,20 @@
       </div>
       <button id="open-options-btn" class="settings-btn" title="Settings">⚙️</button>
     </header>
-
-    <!-- Active Tab Info -->
     <div class="tab-card">
       <div class="tab-label">Current Page:</div>
       <div id="tab-title" class="tab-title">Detecting page...</div>
     </div>
-
-    <!-- Quick Actions -->
     <div class="action-section">
       <button id="analyze-now-btn" class="btn btn-primary">
         <span>🔍</span>
         <span>Analyze & Highlight Key Points</span>
       </button>
-
       <div class="toggle-row">
         <label class="toggle-label" for="language-select">Target Language:</label>
         <select id="language-select" class="select-dropdown">
-          <!-- Dynamically populated from languages.js -->
         </select>
       </div>
-
       <div class="btn-row">
         <button id="toggle-sidebar-btn" class="btn btn-secondary">
           <span>📖</span>
@@ -47,8 +39,6 @@
         </button>
       </div>
     </div>
-
-    <!-- Features Overview -->
     <div class="features-list">
       <div class="feature-item">
         <span class="feature-icon">✨</span>
@@ -72,14 +62,11 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
     <footer class="footer">
       <span id="api-status" class="status-badge">⚡ Extractive + AI Powered</span>
       <span class="shortcut-hint">Select any text to explain</span>
     </footer>
   </div>
-
   <script src="../content/languages.js"></script>
   <script src="popup.js"></script>
 </body>

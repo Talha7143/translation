@@ -1,5 +1,3 @@
-// Settings / Options Page Controller
-
 document.addEventListener('DOMContentLoaded', () => {
   const apiKeyInput = document.getElementById('api-key-input');
   const toggleVisibilityBtn = document.getElementById('toggle-key-visibility');
@@ -13,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveBtn = document.getElementById('save-btn');
   const saveFeedback = document.getElementById('save-feedback');
 
-  // 1. Populate Language Dropdown
   if (typeof SUPPORTED_LANGUAGES !== 'undefined') {
     SUPPORTED_LANGUAGES.forEach(lang => {
       const opt = document.createElement('option');
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Load stored settings
   chrome.storage.sync.get(
     ['apiKey', 'aiModel', 'selectedLanguage', 'maxPoints', 'highlightColor'],
     (items) => {
@@ -38,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 
-  // 3. Toggle password visibility
   toggleVisibilityBtn.addEventListener('click', () => {
     if (apiKeyInput.type === 'password') {
       apiKeyInput.type = 'text';
@@ -49,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Highlight Color Preview Update
   highlightColorSelect.addEventListener('change', (e) => {
     updatePreviewColor(e.target.value);
   });
@@ -60,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 5. Test API Key
   testKeyBtn.addEventListener('click', async () => {
     const key = apiKeyInput.value.trim();
     if (!key) {
@@ -98,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 6. Save Settings
   saveBtn.addEventListener('click', () => {
     const settings = {
       apiKey: apiKeyInput.value.trim(),

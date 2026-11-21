@@ -15,9 +15,7 @@
         <p>Configure AI models, 50+ language preferences, and in-page highlighting styles</p>
       </div>
     </header>
-
     <main class="content">
-      <!-- Section 1: AI Provider (Google Gemini) -->
       <section class="card">
         <div class="card-header">
           <h2>🤖 AI Reasoning Engine (Google Gemini)</h2>
@@ -26,7 +24,6 @@
         <p class="desc">
           Smart Page Explainer includes a built-in heuristic engine with free translation. To unlock deep plain-English simplification (ELI5), real-world analogies, and generative native explanations, connect your free Gemini API key.
         </p>
-
         <div class="form-group">
           <label for="api-key-input">Gemini API Key:</label>
           <div class="input-with-btn">
@@ -38,7 +35,6 @@
             <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>.
           </small>
         </div>
-
         <div class="form-group">
           <label for="ai-model-select">Gemini Model:</label>
           <select id="ai-model-select">
@@ -47,27 +43,21 @@
             <option value="gemini-1.5-pro">Gemini 1.5 Pro (Deepest reasoning)</option>
           </select>
         </div>
-
         <div class="btn-group">
           <button id="test-key-btn" class="btn-secondary" type="button">🧪 Test AI Connection</button>
           <span id="test-status" class="test-feedback"></span>
         </div>
       </section>
-
-      <!-- Section 2: Language & Explanation Defaults -->
       <section class="card">
         <div class="card-header">
           <h2>🌐 Language & Explanation Preferences</h2>
         </div>
-
         <div class="form-group">
           <label for="default-lang-select">Default Language for Explanations:</label>
           <select id="default-lang-select">
-            <!-- Populated dynamically from languages.js -->
           </select>
           <small class="helper-text">You can also switch languages on the fly inside the sidebar on any page.</small>
         </div>
-
         <div class="form-group">
           <label for="max-points-select">Target Number of Key Highlights per Page:</label>
           <select id="max-points-select">
@@ -78,13 +68,10 @@
           </select>
         </div>
       </section>
-
-      <!-- Section 3: In-Page Highlighter Styling -->
       <section class="card">
         <div class="card-header">
           <h2>🎨 In-Page Highlight Styling</h2>
         </div>
-
         <div class="form-group">
           <label for="highlight-color-select">Highlight Theme:</label>
           <select id="highlight-color-select">
@@ -95,7 +82,6 @@
             <option value="#fbcfe8">Pastel Lavender Pink</option>
           </select>
         </div>
-
         <div class="preview-box">
           <div class="preview-label">Live Preview on Web Page:</div>
           <div class="preview-text">
@@ -105,15 +91,12 @@
           </div>
         </div>
       </section>
-
-      <!-- Save Bar -->
       <div class="save-bar">
         <button id="save-btn" class="btn-primary" type="button">💾 Save Settings</button>
         <span id="save-feedback" class="save-feedback"></span>
       </div>
     </main>
   </div>
-
   <script src="../content/languages.js"></script>
   <script src="options.js"></script>
 </body>
